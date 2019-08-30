@@ -1,15 +1,20 @@
 package top;
 
+import app.AppController;
 import gitEngine.AppEngine;
 import gitEngine.Branch;
+import gitEngine.FileWalkResult;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
+import java.nio.file.Path;
+
 public class TopController {
 
+    @FXML private AppController m_AppController;
 
     @FXML
     private MenuItem NewMenuItem;
@@ -186,7 +191,6 @@ public class TopController {
         if (branchName.equals("")) {
             return;
         }
-
         try {
             AppEngine.getInstance().deleteExistingBranch(branchName);
         } catch (Exception e) {
@@ -243,7 +247,10 @@ public class TopController {
 
     @FXML
     void onShowCommit(ActionEvent event) {
-        String listOfFiles = AppEngine.getInstance().getAllFilesPointsFromLastCommit().toString();
+        String listOfFiles = "";
+        for(String file : AppEngine.getInstance().getAllFilesPointsFromLastCommit()){
+            listOfFiles += file + System.lineSeparator();
+        }
 
         MessageBox.display("Commit History", listOfFiles);
     }
@@ -251,7 +258,15 @@ public class TopController {
     @FXML
     void onShowOpenChanges(ActionEvent event) {
         try {
-            String openChanges = AppEngine.getInstance().getStatus().toString();
+            String openChanges = "";
+            FileWalkResult fwr = AppEngine.getInstance().getStatus();
+            openChanges += "New Files:" + System.lineSeparator();
+            for(Path file : fwr.getCommitDelta().getNewFiles()){ openChanges += file + System.lineSeparator(); }
+            openChanges += "Modified Files: " + System.lineSeparator();
+            for(Path file : fwr.getCommitDelta().getModifiedFiles()) { openChanges += file + System.lineSeparator(); }
+            openChanges += "Deleted Files: " + System.lineSeparator();
+            for(Path file : fwr.getCommitDelta().getDeletedFiles()) { openChanges += file + System.lineSeparator(); }
+
             MessageBox.display("Status", openChanges);
         } catch (Exception e){
             MessageBox.display("Error", e.getMessage());
