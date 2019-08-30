@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="600.0" prefWidth="998.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="top.TopController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Repository">
+          <items>
+            <MenuItem fx:id="NewMenuItem" mnemonicParsing="false" onAction="#onNewRepo" text="New" />
+            <MenuItem fx:id="loadFromXMLMenuItem" mnemonicParsing="false" onAction="#onLoadFromXML" text="Load From XML" />
+            <MenuItem fx:id="changeUserNameMenuItem" mnemonicParsing="false" onAction="#onChageUserName" text="Change user name" />
+            <MenuItem fx:id="changeRepoMenuItem" mnemonicParsing="false" onAction="#onChageRepo" text="Change Repository" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Commit">
+          <items>
+            <MenuItem fx:id="showCommitMenuItem" mnemonicParsing="false" onAction="#onShowCommit" text="Show commit" />
+            <MenuItem fx:id="openChangesMenuItem" mnemonicParsing="false" onAction="#onShowOpenChanges" text="Show open changes" />
+            <MenuItem fx:id="newCommitMenuItem" mnemonicParsing="false" onAction="#onCommit" text="new" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Branch">
+          <items>
+            <MenuItem fx:id="showBranchesMenuItem" mnemonicParsing="false" onAction="#onShowBranches" text="Show branches" />
+                  <MenuItem fx:id="newBranchMenuItem" mnemonicParsing="false" onAction="#onNewBranch" text="New" />
+                  <MenuItem fx:id="deleteBranchMenuItem" mnemonicParsing="false" onAction="#onDeleteBranch" text="Delete" />
+                  <MenuItem fx:id="checkoutBranchMenuItem" mnemonicParsing="false" onAction="#onCheckoutBranch" text="Checkout" />
+                  <MenuItem fx:id="resetBranchMenuItem" mnemonicParsing="false" onAction="#onResetBranch" text="Reset" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+  </children>
+</VBox>
