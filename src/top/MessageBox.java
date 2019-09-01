@@ -15,7 +15,7 @@ public class MessageBox {
 
     public static void display(String i_Title, String i_Message){
         Stage stage = new Stage();
-        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle(i_Title);
         stage.setMinWidth(MIN_WIDTH);
         Label label = new Label(i_Message);

@@ -14,7 +14,8 @@ import java.nio.file.Path;
 
 public class TopController {
 
-    @FXML private AppController m_AppController;
+    @FXML
+    private AppController m_AppController;
 
     @FXML
     private MenuItem NewMenuItem;
@@ -64,9 +65,18 @@ public class TopController {
     @FXML
     private Color x4;
 
+    public void setAppController(AppController i_AppController) { this.m_AppController = i_AppController; }
+
     // =============== Repository menu methods ==========================
+
     @FXML
-    void onChageRepo(ActionEvent event) {
+    void onChageUserName(ActionEvent event) {
+        String newName = GetDataBox.display("Get user name", "please enter new user name: ");
+        AppEngine.getInstance().setActiveUserName(newName);
+    }
+
+    @FXML
+    void onChangeRepo(ActionEvent event) {
         String pathToRepo = GetDataBox.display("Change Repo", "Please enter repository path:");
         if (AppEngine.getInstance().checkIfRepository(pathToRepo)) {
             try {
@@ -78,13 +88,9 @@ public class TopController {
             MessageBox.display("Error", pathToRepo + " is not a repository valid path");
         }
 
+        m_AppController.onLoadRepoToSystem();
     }
 
-    @FXML
-    void onChageUserName(ActionEvent event) {
-        String newName = GetDataBox.display("Get user name", "please enter new user name: ");
-        AppEngine.getInstance().setActiveUserName(newName);
-    }
 
     @FXML
     void onLoadFromXML(ActionEvent event) {
@@ -130,13 +136,21 @@ public class TopController {
     @FXML
     void onNewRepo(ActionEvent event) {
         String input = GetDataBox.display("repo", "please enter repository name and path in seperated lines: ");
-        String name = "noam"; //input.substring(0,input.lastIndexOf(System.lineSeparator()));
-        String path = "C:\\Users\\noamlevy\\Desktop\\מכללה\\שנה ב\\סימסטר קיץ\\Java\\testRepo"; //input.substring(input.lastIndexOf(System.lineSeparator()));
+        String[] res = parse(input);
         try {
-            AppEngine.getInstance().createNewRepository(path, name);
+            AppEngine.getInstance().createNewRepository(res[1], res[0]);
         } catch (Exception e) {
             MessageBox.display("Error", e.getMessage());
         }
+
+    }
+
+    String[] parse(String i_input) {
+        String[] res = new String[2];
+        res[0] = i_input.substring(0, i_input.lastIndexOf(System.lineSeparator()));
+        res[1] = i_input.substring(i_input.lastIndexOf(System.lineSeparator()));
+
+        return res;
     }
 
     // =============== Branch menu methods ==========================
@@ -226,7 +240,7 @@ public class TopController {
             for (Branch branch : AppEngine.getInstance().getAllBranches()) {
                 toShow += branch.getBracnhName() + System.lineSeparator();
             }
-        } catch(Exception e){
+        } catch (Exception e) {
             toShow = e.getMessage();
         }
 
@@ -240,7 +254,7 @@ public class TopController {
         String message = GetDataBox.display("Commit Message", "Enter commit message:");
         try {
             AppEngine.getInstance().createNewCommit(message);
-        } catch (Exception e){
+        } catch (Exception e) {
             MessageBox.display("Error", e.getMessage());
         }
     }
@@ -248,7 +262,7 @@ public class TopController {
     @FXML
     void onShowCommit(ActionEvent event) {
         String listOfFiles = "";
-        for(String file : AppEngine.getInstance().getAllFilesPointsFromLastCommit()){
+        for (String file : AppEngine.getInstance().getAllFilesPointsFromLastCommit()) {
             listOfFiles += file + System.lineSeparator();
         }
 
@@ -261,14 +275,20 @@ public class TopController {
             String openChanges = "";
             FileWalkResult fwr = AppEngine.getInstance().getStatus();
             openChanges += "New Files:" + System.lineSeparator();
-            for(Path file : fwr.getCommitDelta().getNewFiles()){ openChanges += file + System.lineSeparator(); }
+            for (Path file : fwr.getCommitDelta().getNewFiles()) {
+                openChanges += file + System.lineSeparator();
+            }
             openChanges += "Modified Files: " + System.lineSeparator();
-            for(Path file : fwr.getCommitDelta().getModifiedFiles()) { openChanges += file + System.lineSeparator(); }
+            for (Path file : fwr.getCommitDelta().getModifiedFiles()) {
+                openChanges += file + System.lineSeparator();
+            }
             openChanges += "Deleted Files: " + System.lineSeparator();
-            for(Path file : fwr.getCommitDelta().getDeletedFiles()) { openChanges += file + System.lineSeparator(); }
+            for (Path file : fwr.getCommitDelta().getDeletedFiles()) {
+                openChanges += file + System.lineSeparator();
+            }
 
             MessageBox.display("Status", openChanges);
-        } catch (Exception e){
+        } catch (Exception e) {
             MessageBox.display("Error", e.getMessage());
         }
     }

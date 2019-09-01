@@ -14,7 +14,7 @@
             <MenuItem fx:id="NewMenuItem" mnemonicParsing="false" onAction="#onNewRepo" text="New" />
             <MenuItem fx:id="loadFromXMLMenuItem" mnemonicParsing="false" onAction="#onLoadFromXML" text="Load From XML" />
             <MenuItem fx:id="changeUserNameMenuItem" mnemonicParsing="false" onAction="#onChageUserName" text="Change user name" />
-            <MenuItem fx:id="changeRepoMenuItem" mnemonicParsing="false" onAction="#onChageRepo" text="Change Repository" />
+            <MenuItem fx:id="changeRepoMenuItem" mnemonicParsing="false" onAction="#onChangeRepo" text="Change Repository" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Commit">
