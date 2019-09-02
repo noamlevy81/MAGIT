@@ -4,21 +4,23 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bottom.CommitDataController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bottom.CommitDataController">
    <children>
-      <TabPane layoutY="-4.0" prefHeight="411.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="-4.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="590.0" prefWidth="758.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="dataTab" text="Data">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0">
                      <children>
-                        <VBox layoutX="2.0" layoutY="1.0" prefHeight="369.0" prefWidth="600.0" spacing="10.0">
+                        <VBox layoutX="2.0" layoutY="1.0" spacing="10.0">
                            <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                              <HBox prefHeight="100.0" spacing="10.0">
                                  <children>
                                     <Label text="Author:">
                                        <padding>
@@ -32,7 +34,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
+                              <HBox prefHeight="100.0">
                                  <children>
                                     <Label text="Date:">
                                        <padding>
@@ -46,7 +48,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
+                              <HBox prefHeight="100.0">
                                  <children>
                                     <Label text="Parent:">
                                        <padding>
@@ -74,7 +76,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
+                              <HBox prefHeight="100.0">
                                  <children>
                                     <Label text="Message:">
                                        <padding>
@@ -99,7 +101,15 @@
           </Tab>
           <Tab text="Commit Tree">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TreeView fx:id="commitTreeView" layoutX="14.0" layoutY="20.0" onMousePressed="#onFileSelected" prefHeight="525.0" prefWidth="292.0" showRoot="false">
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </TreeView>
+                        <TextArea fx:id="textAreaFileContent" editable="false" layoutX="320.0" layoutY="20.0" prefHeight="522.0" prefWidth="424.0" />
+                     </children></AnchorPane>
             </content>
           </Tab>
         </tabs>

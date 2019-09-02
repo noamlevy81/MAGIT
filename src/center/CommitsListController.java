@@ -62,6 +62,7 @@ public class CommitsListController {
         Map<String, Commit> commits = AppEngine.getInstance().getRepository().getMagit().getCommits();
         ObservableList<Commit> commitsForUI = FXCollections.observableArrayList();
         commitsForUI.addAll(commits.values());
+
         return commitsForUI;
     }
 

@@ -35,6 +35,6 @@ public class AppController {
     }
 
     public void onSelectedCommitFromList(Commit commit){
-        m_BottomController.ShowCommitDetails(commit);
+        m_BottomController.LoadCommitToContainer(commit);
     }
 }
