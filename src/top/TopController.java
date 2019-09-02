@@ -88,7 +88,7 @@ public class TopController {
             MessageBox.display("Error", pathToRepo + " is not a repository valid path");
         }
 
-        m_AppController.onLoadRepoToSystem();
+        m_AppController.onLoadedRepoToSystem();
     }
 
 
@@ -100,9 +100,11 @@ public class TopController {
             switch (engine.getXmlOption(pathToXML)) {
                 case NODIRECTORY:
                     engine.createNewRepositoryFromXmlFile(pathToXML, false);
+                    m_AppController.onLoadedRepoToSystem();
                     break;
                 case REPOSITORY:
                     manageExistingRepo(pathToXML);
+                    m_AppController.onLoadedRepoToSystem();
                     break;
                 case NOREPOSITORY:
                     MessageBox.display("Error", "There is an exisiting folder in" + System.lineSeparator() + pathToXML);
@@ -135,10 +137,11 @@ public class TopController {
 
     @FXML
     void onNewRepo(ActionEvent event) {
-        String input = GetDataBox.display("repo", "please enter repository name and path in seperated lines: ");
-        String[] res = parse(input);
+//        String input = GetDataBox.display("repo", "please enter repository name and path in seperated lines: ");
+//        String[] res = parse(input);
+
         try {
-            AppEngine.getInstance().createNewRepository(res[1], res[0]);
+            AppEngine.getInstance().createNewRepository("C:\\Users\\noamlevy\\Desktop\\מכללה\\שנה ב\\סימסטר קיץ\\Java\\javaXML","noam");
         } catch (Exception e) {
             MessageBox.display("Error", e.getMessage());
         }
