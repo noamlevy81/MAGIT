@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 
-
-<ListView id="commisListView" fx:id="commitsListView" onMouseClicked="#onCommitClick" prefHeight="200.0" prefWidth="317.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="body.right.CommitsListController" />
+<ScrollPane fx:id="m_ScroolPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <TableView fx:id="m_CommitsList" minHeight="-Infinity" minWidth="-Infinity">
+         <columns>
+            <TableColumn prefWidth="112.0" text="Name" />
+            <TableColumn prefWidth="112.0" text="Author" />
+            <TableColumn prefWidth="343.0" text="Message" />
+            <TableColumn minWidth="0.0" prefWidth="232.0" text="SHA-1" />
+         </columns>
+      </TableView>
+   </content>
+</ScrollPane>
