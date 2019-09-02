@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 
-<ScrollPane fx:id="m_ScroolPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="center.CommitsListController">
+<ScrollPane fx:id="m_ScroolPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="center.CommitsListController">
    <content>
       <TableView fx:id="m_CommitsTableView" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onCommitClick" onTouchPressed="#onCommitClick">
          <columns>

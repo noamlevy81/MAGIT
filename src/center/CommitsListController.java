@@ -68,7 +68,8 @@ public class CommitsListController {
 
 
     public void onCommitClick(MouseEvent mouseEvent) {
-        m_AppController.onSelectedCommitFromList(m_CommitsTableView.getSelectionModel().getSelectedItem());
+        if(m_CommitsTableView.getSelectionModel().getSelectedItem() != null)
+            m_AppController.onSelectedCommitFromList(m_CommitsTableView.getSelectionModel().getSelectedItem());
     }
 }
 

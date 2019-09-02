@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import left.LeftController;
 import top.TopController;
 public class AppController {
 
@@ -19,14 +20,21 @@ public class AppController {
     @FXML private AnchorPane m_Bottom;
     @FXML private CommitDataController m_BottomController;
 
+    @FXML private VBox m_Left ;
+    @FXML private LeftController m_LeftController;
+
+
     @FXML
     public void initialize(){
         if(m_CommitsListController != null &&
                 m_TopController != null &&
-                m_BottomController != null){
+                m_BottomController != null &&
+                m_LeftController != null){
             m_TopController.setAppController(this);
             m_CommitsListController.setAppController(this);
             m_BottomController.setAppController(this);
+            m_LeftController.setAppController(this);
+
         }
     }
 

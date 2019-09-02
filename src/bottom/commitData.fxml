@@ -101,14 +101,14 @@
           </Tab>
           <Tab text="Commit Tree">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="180.0">
                      <children>
-                        <TreeView fx:id="commitTreeView" layoutX="14.0" layoutY="20.0" onMousePressed="#onFileSelected" prefHeight="525.0" prefWidth="292.0" showRoot="false">
+                        <TreeView fx:id="commitTreeView" layoutX="14.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#onFileSelected" prefHeight="525.0" showRoot="false">
                            <padding>
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </padding>
                         </TreeView>
-                        <TextArea fx:id="textAreaFileContent" editable="false" layoutX="320.0" layoutY="20.0" prefHeight="522.0" prefWidth="424.0" />
+                        <TextArea fx:id="textAreaFileContent" editable="false" layoutX="320.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" />
                      </children></AnchorPane>
             </content>
           </Tab>

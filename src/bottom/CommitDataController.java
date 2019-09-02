@@ -48,6 +48,7 @@ public class CommitDataController {
     @FXML
     public void initialize(){
         m_TreeItemToSHA1 = new HashMap<>();
+
     }
 
     private void showCommitDetails(Commit commit) {

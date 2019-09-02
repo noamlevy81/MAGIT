@@ -2,7 +2,7 @@
 
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.AppController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.AppController">
    <top>
       <fx:include fx:id="m_Top" source="../top/topBar.fxml" />
    </top>
@@ -12,4 +12,9 @@
    <bottom>
       <fx:include fx:id="m_Bottom" source="../bottom/commitData.fxml" />
    </bottom>
+   <left>
+      <fx:include fx:id="m_Left" source="../left/left.fxml" />
+   </left>
+
+
 </BorderPane>
